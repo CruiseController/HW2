@@ -11,17 +11,13 @@ public class MySqlConnector implements IDbConnection {
     private static Connection dbConnection = null;
     private static Statement statement = null;
 
-    public MySqlConnector() {
-    }
-
     private void mySqlConnector() throws SQLException {
         try {
             if (dbConnection == null) {
                 try {
                     Map<String, String> settings = new FilePropertiesReader().getSettings();
                     dbConnection = DriverManager.getConnection(settings.get("url"), settings.get("login"), settings.get("password"));
-                }
-                catch (IOException e){
+                } catch (IOException e) {
                     System.out.println("Ошибка при получении данных для подключения из properties-фала");
                 }
 
@@ -29,8 +25,7 @@ public class MySqlConnector implements IDbConnection {
             if (statement == null) {
                 statement = dbConnection.createStatement();
             }
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Не удалось подключитсяк БД");
             throw e;
         }

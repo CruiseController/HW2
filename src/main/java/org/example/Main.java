@@ -97,21 +97,27 @@ public class Main {
                     }
 
                     while (true) {
+                        int newAge;
                         System.out.println("Введите новый возраст: ");
-                        String newAge = scanner.nextLine();
-                        if (newAge != null && !newAge.isEmpty() && IsNumericCheck.isNumeric(newAge)) {
-                            animalForUpdate.setAge(Integer.parseInt(newAge));
+                        String newAgeStr = scanner.nextLine();
+                        newAge = Integer.parseInt(newAgeStr);
+                        if (newAgeStr != null && !newAgeStr.isEmpty() && IsNumericCheck.isNumeric(newAgeStr) && newAge > 0) {
+                            animalForUpdate.setAge(Integer.parseInt(newAgeStr));
                             break;
                         }
+                        System.out.println("Некорректный тип данных");
                     }
 
                     while (true) {
+                        int newWeight;
                         System.out.println("Введите новый вес: ");
-                        String newWeight = scanner.nextLine();
-                        if (newWeight != null && !newWeight.isEmpty() && IsNumericCheck.isNumeric(newWeight)) {
-                            animalForUpdate.setWeight(Integer.parseInt(newWeight));
+                        String newWeightStr = scanner.nextLine();
+                        newWeight = Integer.parseInt(newWeightStr);
+                        if (newWeightStr != null && !newWeightStr.isEmpty() && IsNumericCheck.isNumeric(newWeightStr) && newWeight > 0) {
+                            animalForUpdate.setWeight(Integer.parseInt(newWeightStr));
                             break;
                         }
+                        System.out.println("Некорректный тип данных");
                     }
 
 

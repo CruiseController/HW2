@@ -12,12 +12,4 @@ public abstract class AbsTable {
         this.name = name;
     }
 
-    private String convertMapColumnsToString() {
-        String result = "";
-        for (Map.Entry<String, String> el : columns.entrySet()) {
-            result += el.getKey() + " " + el.getValue() + ",";
-        }
-        result = result.substring(0, result.length() - 1);
-        return result;
-    }
 }
